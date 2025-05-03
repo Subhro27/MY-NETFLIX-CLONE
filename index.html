@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix UI Clone - Stranger Things</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #141414;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 4%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            color: #e50914;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            color: #b3b3b3;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+                       url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=1920&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 4%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: #e50914;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #f40612;
+        }
+
+        .movies {
+            padding: 40px 4%;
+        }
+
+        .movies h2 {
+            margin-bottom: 20px;
+        }
+
+        .movie-row {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding-bottom: 20px;
+        }
+
+        .movie-card {
+            flex: 0 0 auto;
+            width: 200px;
+            position: relative;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.1);
+        }
+
+        .movie-card img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .movie-title {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .rank-number {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 40px;
+            height: 40px;
+            background: #e50914;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            text-shadow: 1px 1px 2px black;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">NETFLIX</a>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">TV Shows</a>
+            <a href="#">Movies</a>
+            <a href="#">New & Popular</a>
+            <a href="#">My List</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Stranger Things</h1>
+            <p>When a young boy vanishes, a small town uncovers a mystery involving secret experiments and supernatural forces.</p>
+            <button class="btn">Play Now</button>
+        </div>
+    </section>
+
+    <!-- Movies Sections -->
+    <section class="movies">
+        <h2>Trending Now</h2>
+        <div class="movie-row">
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=The Witcher'">
+                <div class="rank-number">1</div>
+                <img src="https://picsum.photos/200/300?random=1" alt="The Witcher">
+                <div class="movie-title">The Witcher</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Squid Game'">
+                <div class="rank-number">2</div>
+                <img src="https://picsum.photos/200/300?random=2" alt="Squid Game">
+                <div class="movie-title">Squid Game</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=The Crown'">
+                <div class="rank-number">3</div>
+                <img src="https://picsum.photos/200/300?random=3" alt="The Crown">
+                <div class="movie-title">The Crown</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Mindhunter'">
+                <div class="rank-number">4</div>
+                <img src="https://picsum.photos/200/300?random=4" alt="Mindhunter">
+                <div class="movie-title">Mindhunter</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Ozark'">
+                <div class="rank-number">5</div>
+                <img src="https://picsum.photos/200/300?random=5" alt="Ozark">
+                <div class="movie-title">Ozark</div>
+            </div>
+        </div>
+
+        <h2>Action Movies</h2>
+        <div class="movie-row">
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Extraction'">
+                <img src="https://picsum.photos/200/300?random=6" alt="Extraction">
+                <div class="movie-title">Extraction</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=The Old Guard'">
+                <img src="https://picsum.photos/200/300?random=7" alt="The Old Guard">
+                <div class="movie-title">The Old Guard</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=6 Underground'">
+                <img src="https://picsum.photos/200/300?random=8" alt="6 Underground">
+                <div class="movie-title">6 Underground</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Red Notice'">
+                <img src="https://picsum.photos/200/300?random=9" alt="Red Notice">
+                <div class="movie-title">Red Notice</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Army of the Dead'">
+                <img src="https://picsum.photos/200/300?random=10" alt="Army of the Dead">
+                <div class="movie-title">Army of the Dead</div>
+            </div>
+        </div>
+
+        <h2>Comedies</h2>
+        <div class="movie-row">
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=The Good Place'">
+                <img src="https://picsum.photos/200/300?random=11" alt="The Good Place">
+                <div class="movie-title">The Good Place</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Brooklyn Nine-Nine'">
+                <img src="https://picsum.photos/200/300?random=12" alt="Brooklyn Nine-Nine">
+                <div class="movie-title">Brooklyn Nine-Nine</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Schitt\'s Creek'">
+                <img src="https://picsum.photos/200/300?random=13" alt="Schitt's Creek">
+                <div class="movie-title">Schitt's Creek</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=The IT Crowd'">
+                <img src="https://picsum.photos/200/300?random=14" alt="The IT Crowd">
+                <div class="movie-title">The IT Crowd</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Dead to Me'">
+                <img src="https://picsum.photos/200/300?random=15" alt="Dead to Me">
+                <div class="movie-title">Dead to Me</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // No additional JS needed; onclick handles navigation
+    </script>
+</body>
+</html>

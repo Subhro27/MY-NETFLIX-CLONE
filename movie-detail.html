@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Movie Detail</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #141414;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 4%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            color: #e50914;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            color: #b3b3b3;
+        }
+
+        .detail-container {
+            padding: 100px 4% 40px;
+        }
+
+        .video-player {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 30px;
+            background: black;
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-player video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .movie-info {
+            max-width: 1200px;
+            margin-bottom: 40px;
+        }
+
+        .movie-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            color: #46d369;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #b3b3b3;
+            max-width: 800px;
+        }
+
+        .related-movies {
+            padding: 0 4%;
+        }
+
+        .related-movies h2 {
+            margin-bottom: 20px;
+        }
+
+        .movie-row {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding-bottom: 20px;
+        }
+
+        .movie-card {
+            flex: 0 0 auto;
+            width: 200px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.1);
+        }
+
+        .movie-card img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .movie-title {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">NETFLIX</a>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="#">TV Shows</a>
+            <a href="#">Movies</a>
+            <a href="#">New & Popular</a>
+            <a href="#">My List</a>
+        </nav>
+    </header>
+
+    <!-- Movie Detail Section -->
+    <div class="detail-container">
+        <div class="video-player">
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="movie-info">
+            <h1 id="movie-title">Movie Title</h1>
+            <div class="rating">★★★★☆ 4.2/5</div>
+            <p class="description" id="movie-description">
+                A thrilling adventure unfolds as our heroes battle against time and mysterious forces in a world filled with danger and intrigue.
+            </p>
+        </div>
+    </div>
+
+    <!-- Related Movies -->
+    <section class="related-movies">
+        <h2>More Like This</h2>
+        <div class="movie-row">
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Dark'">
+                <img src="https://picsum.photos/200/300?random=16" alt="Dark">
+                <div class="movie-title">Dark</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Breaking Bad'">
+                <img src="https://picsum.photos/200/300?random=17" alt="Breaking Bad">
+                <div class="movie-title">Breaking Bad</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=Narcos'">
+                <img src="https://picsum.photos/200/300?random=18" alt="Narcos">
+                <div class="movie-title">Narcos</div>
+            </div>
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?title=The Umbrella Academy'">
+                <img src="https://picsum.photos/200/300?random=19" alt="The Umbrella Academy">
+                <div class="movie-title">The Umbrella Academy</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Get movie title from URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const title = urlParams.get('title') || 'Unknown Title';
+
+        // Update page content
+        document.getElementById('movie-title').textContent = title;
+
+        // Sample descriptions (could be expanded with a full database)
+        const descriptions = {
+            'The Witcher': 'A monster hunter navigates a turbulent world where people often prove more wicked than beasts.',
+            'Squid Game': 'Hundreds of desperate contestants risk their lives to become the final winner in a deadly survival game.',
+            'The Crown': 'The reign of Queen Elizabeth II unfolds with political rivalries and personal dramas.',
+            'Mindhunter': 'FBI agents explore the psychology of murder in the early days of criminal profiling.',
+            'Ozark': 'A financial planner relocates his family to launder money for a drug cartel.',
+            'Extraction': 'A mercenary undertakes a deadly mission to rescue a kidnapped child.',
+            'The Old Guard': 'Immortal warriors fight to protect the world across centuries.',
+            '6 Underground': 'A group of vigilantes fake their deaths to take down criminals.',
+            'Red Notice': 'An art thief and an FBI agent team up to catch a crook.',
+            'Army of the Dead': 'Survivors attempt a heist in a zombie-infested Las Vegas.',
+            'The Good Place': 'A woman navigates the afterlife in a quirky moral experiment.',
+            'Brooklyn Nine-Nine': 'A precinct of quirky cops solves crimes with humor.',
+            'Schitt\'s Creek': 'A wealthy family adjusts to life in a small town after losing everything.',
+            'The IT Crowd': 'Tech support workers hilariously manage a basement IT department.',
+            'Dead to Me': 'A widow uncovers secrets while forming an unlikely friendship.'
+        };
+
+        document.getElementById('movie-description').textContent = descriptions[title] || 'No description available.';
+    </script>
+</body>
+</html>
