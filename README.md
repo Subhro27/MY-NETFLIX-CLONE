@@ -1,7 +1,5 @@
 # MY-NETFLIX-CLONE
 
-# MY-NETFLIX-CLONE
-
 # 🎬 Netflix Clone - Movie Listing and Detail Page
 
 This project is a simple, static **Netflix clone** built with HTML, CSS, and JavaScript. It features a homepage displaying popular movies and a dynamic detail page for each selected movie.
